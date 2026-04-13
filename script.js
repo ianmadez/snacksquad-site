@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // --- 1. PRELOADER TIMELINE & RESPONSIVE LOGIC ---
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
 
     if (!document.getElementById("spline-container")) return;
 
