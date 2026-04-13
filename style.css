@@ -57,13 +57,18 @@ spline-viewer::part(logo) {
     display: none !important;
 }
 
-body, html {
+/* We split HTML and Body to prevent GSAP ScrollTrigger from going blind on mobile */
+html {
     font-family: 'Red Hat Display', sans-serif;
     background-color: var(--bg-cream);
     color: var(--text-dark);
-    /* height: 100%; */
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+    /* ABSOLUTELY NO scroll-behavior: smooth HERE! It kills GSAP. */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Safely prevents horizontal scrolling only on the body */
 }
 
 /* --- Typography --- */
