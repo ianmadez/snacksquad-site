@@ -402,7 +402,7 @@ p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin-bottom: 1.5rem
 
 /* 2. Connect Your Background Images */
 #problem {
-    background-image: url('assets/images/biltongbundle.png'); /* Make sure this matches your file name! */
+    background-image: url('assets/images/biltongbundle.jpg'); /* Make sure this matches your file name! */
 }
 
 /* 3. The Deep "Rescued Green" Gradient Overlay */
