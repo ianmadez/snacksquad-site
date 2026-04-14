@@ -56,7 +56,7 @@
         <section class="panel hero-section" id="hero">
             <div class="content-wrapper">
                 <h1 class="boldonse-text">Fueling the Squad,<br>one <span class="highlight">rescued</span> bite<br>at a time.</h1>
-                <p class="subtitle">Premium, artisanal snacks born from surplus produce. Better for the planet, better for the office.</p>
+                <p class="subtitle">Premium, artisanal hand-foods born from surplus produce. Better for the planet, better for the office.</p>
                 <div class="hero-btns">
                     <a href="#products" class="btn-primary">Explore the Lineup</a>
                 </div>
@@ -67,22 +67,22 @@
             <div class="content-wrapper split-layout">
                 <div class="text-block">
                     <h2 class="oswald-text">30-40% OF PRODUCE IS WASTED</h2>
-                    <p>While offices settle for generic, highly-processed vending machine fare, up to 20.7 million tonnes of fresh produce is lost globally.</p>
-                    <p>We saw an opportunity to derive value and defy decay. By rescuing surplus, we create premium, shelf-stable snacks that fuel your team, support local farmers, and protect the planet.</p>
+                    <p>While offices settle for generic, highly-processed packaged foods, up to 20.7 million tonnes in Tanzania (annually) of fresh produce is lost globally.</p>
+                    <p>We saw an opportunity to derive value and defy decay. By rescuing surplus that would have gone to waste, we repurpose these food items and create premium, shelf-stable bites that fuel your team, support local farmers, and protect the planet.</p>
                 </div>
                 
                 <div class="stat-block stats-grid">
                     <div class="stat">
                         <span class="boldonse-text stat-num">5<span class="highlight">Tons</span></span>
-                        <span class="stat-label oswald-text">To Be Produce Rescued</span>
+                        <span class="stat-label oswald-text">Produce Rescued</span>
                     </div>
                     <div class="stat">
                         <span class="boldonse-text stat-num">1.6<span class="highlight">k</span></span>
-                        <span class="stat-label oswald-text">Snacks Crafted</span>
+                        <span class="stat-label oswald-text">Bites Crafted</span>
                     </div>
                     <div class="stat">
                         <span class="boldonse-text stat-num">0<span class="highlight">%</span></span>
-                        <span class="stat-label oswald-text">Additives</span>
+                        <span class="stat-label oswald-text">Harmful Additives</span>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
         <section class="panel solution-section" id="solution">
             <div class="content-wrapper text-center">
                 <h2 class="oswald-text highlight">THE SQUAD SOLUTION</h2>
-                <p class="large-body">We rescue surplus, process it into shelf-stable snacks, and deliver affordable, healthy products directly to your team.</p>
+                <p class="large-body">We rescue surplus, process it into shelf-stable bites, and deliver affordable, healthy products directly to your team.</p>
                 <div class="features-grid">
                     <div class="feature">
                         <h3>Long Shelf-Life</h3>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="feature">
                         <h3>Locally Sourced</h3>
-                        <p>Supporting farmers while fueling your workday.</p>
+                        <p>Supporting farmers while tantalizing your tastebuds.</p>
                     </div>
                     <div class="feature">
                         <h3>Healthier Teams</h3>
@@ -126,7 +126,7 @@
                         <img src="assets/images/jerkyshot.jpg" alt="Beef Biltong" class="product-img">
                         <div class="card-info">
                             <h3 class="oswald-text">Beef Biltong</h3>
-                            <p>Well-spiced, protein-rich snacking.</p>
+                            <p>Well-spiced, protein-rich snacking coming in different flavors; Original, Honey, Spicey, Black Pepper and Garlic.</p>
                         </div>
                     </div>
                     <div class="product-card">
@@ -192,7 +192,7 @@
             
             <div class="footer-contact">
                 <h3 class="oswald-text">Contact</h3>
-                <a href="mailto:snacsquad@gmail.com">snacsquad@gmail.com</a>
+                <a href="mailto:snacksquad@gmail.com">snacksquad@gmail.com</a>
                 <a href="tel:+255678561056">+255 678 561 056</a>
                 <p>Morogoro, Tanzania</p>
             </div>
@@ -206,6 +206,56 @@
             </div>
         </div>
     </footer>
+
+    <div class="order-modal-overlay" id="order-modal">
+        <div class="order-modal-content">
+            <div class="close-modal" id="close-order-modal">&times;</div>
+            <h2 class="boldonse-text" style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 0.5rem;">Wholesale Order</h2>
+            <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">B2B supply for supermarkets & campuses. Minimum order: 40 units.</p>
+
+            <form id="whatsapp-order-form">
+                <div class="form-group">
+                    <label class="oswald-text">Business / Contact Name</label>
+                    <input type="text" id="biz-name" required placeholder="e.g. Shoppers Supermarket">
+                </div>
+
+                <h3 class="oswald-text" style="margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 2px solid var(--accent-coral); display: inline-block;">Quantities</h3>
+
+                <div class="qty-grid">
+                    <div class="qty-item">
+                        <label>Beef Biltong</label>
+                        <input type="number" class="order-qty" data-name="Beef Biltong" min="0" value="0">
+                    </div>
+                    <div class="qty-item">
+                        <label>Jalapeño Pickles</label>
+                        <input type="number" class="order-qty" data-name="Jalapeño Pickles" min="0" value="0">
+                    </div>
+                    <div class="qty-item">
+                        <label>Pickled Onions</label>
+                        <input type="number" class="order-qty" data-name="Pickled Onions" min="0" value="0">
+                    </div>
+                    <div class="qty-item">
+                        <label>Pickled Cabbage</label>
+                        <input type="number" class="order-qty" data-name="Pickled Cabbage" min="0" value="0">
+                    </div>
+                    <div class="qty-item">
+                        <label>Dried Mango</label>
+                        <input type="number" class="order-qty" data-name="Dried Mango" min="0" value="0">
+                    </div>
+                    <div class="qty-item">
+                        <label>Dried Pineapple</label>
+                        <input type="number" class="order-qty" data-name="Dried Pineapple" min="0" value="0">
+                    </div>
+                </div>
+
+                <div class="total-tracker" id="total-tracker">
+                    Total Units: <span id="total-units">0</span> / 40 Min
+                </div>
+
+                <button type="submit" class="btn-primary" id="submit-order" style="width: 100%; margin-top: 1.5rem;" disabled>Send via WhatsApp</button>
+            </form>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

@@ -138,3 +138,83 @@ if (burger) {
     // Close menu when a link is clicked
     mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 }
+
+// --- 6. WHATSAPP WHOLESALE MODAL LOGIC ---
+const orderModal = document.getElementById('order-modal');
+const closeOrderModal = document.getElementById('close-order-modal');
+const orderForm = document.getElementById('whatsapp-order-form');
+const qtyInputs = document.querySelectorAll('.order-qty');
+const totalUnitsDisplay = document.getElementById('total-units');
+const totalTracker = document.getElementById('total-tracker');
+const submitBtn = document.getElementById('submit-order');
+
+const MINIMUM_ORDER = 40;
+const SNACK_SQUAD_WHATSAPP = "255678561056"; // Official business number
+
+// 1. Open Modal when any "Customize Box" link is clicked
+document.querySelectorAll('a[href="#order"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        orderModal.classList.add('active');
+        // Close mobile menu if it was open
+        if(mobileNav.classList.contains('active')) toggleMenu(); 
+    });
+});
+
+// 2. Close Modal
+closeOrderModal.addEventListener('click', () => orderModal.classList.remove('active'));
+orderModal.addEventListener('click', (e) => {
+    if(e.target === orderModal) orderModal.classList.remove('active');
+});
+
+// 3. Calculate Totals & Enforce Minimum
+function calculateTotal() {
+    let total = 0;
+    qtyInputs.forEach(input => {
+        total += parseInt(input.value) || 0;
+    });
+
+    totalUnitsDisplay.innerText = total;
+
+    if (total >= MINIMUM_ORDER) {
+        totalTracker.classList.add('valid');
+        submitBtn.disabled = false;
+        totalUnitsDisplay.innerText = total + " (Minimum Met)";
+    } else {
+        totalTracker.classList.remove('valid');
+        submitBtn.disabled = true;
+    }
+}
+
+// Listen for typing/clicking arrows on the number inputs
+qtyInputs.forEach(input => {
+    input.addEventListener('input', calculateTotal);
+});
+
+// 4. Generate WhatsApp Message & Redirect
+orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const bizName = document.getElementById('biz-name').value;
+    
+    // Construct the message string with line breaks (%0A)
+    let message = `Hello Snack Squad! I would like to place a wholesale order for *${bizName}*.%0A%0A*Order Details:*%0A`;
+    
+    let totalItems = 0;
+
+    qtyInputs.forEach(input => {
+        const qty = parseInt(input.value) || 0;
+        if (qty > 0) {
+            const itemName = input.getAttribute('data-name');
+            message += `- ${qty}x ${itemName}%0A`;
+            totalItems += qty;
+        }
+    });
+
+    message += `%0A*Total Units:* ${totalItems}%0A`;
+    message += `Please let me know the total cost and delivery schedule.`;
+
+    // Open WhatsApp in a new tab
+    const whatsappUrl = `https://wa.me/${SNACK_SQUAD_WHATSAPP}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+});
