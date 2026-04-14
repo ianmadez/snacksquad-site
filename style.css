@@ -668,6 +668,19 @@ p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin-bottom: 1.5rem
     transform: none;
 }
 
+.final-cta {
+    background-image: radial-gradient(circle at center, rgba(255, 107, 74, 0.08), transparent 70%);
+    min-height: 70vh; /* Slightly shorter than a full screen */
+}
+
+/* =========================================
+   DESKTOP BURGER MENU FIX
+   ========================================= */
+/* Ensure the burger menu is visible on desktop too */
+.burger-menu {
+    display: flex; /* Changed from none so it shows everywhere */
+}
+
 /* =========================================
    RESPONSIVE DESIGN (1024px, 768px, 430px)
    ========================================= */
