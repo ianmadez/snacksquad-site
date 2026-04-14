@@ -673,9 +673,16 @@ p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin-bottom: 1.5rem
    ========================================= */
 .partners-section {
     background-color: white;
+    /* NEW: A subtle spotlight gradient to ground the 3D effect */
+    background-image: radial-gradient(circle at center 60%, rgba(10, 46, 38, 0.04) 0%, transparent 50%);
     border-top: 1px solid rgba(10, 46, 38, 0.05);
     overflow: hidden; 
-    perspective: 1000px; /* Gives the scene realistic 3D depth */
+    perspective: 1000px; 
+    
+    /* FIX: Tightens the padding and removes the forced 100vh height */
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+    min-height: auto !important; 
 }
 
 .carousel-container {
@@ -686,6 +693,15 @@ p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin-bottom: 1.5rem
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    
+    /* NEW: Makes the entire ring gently breathe/float up and down */
+    animation: floatRing 6s ease-in-out infinite; 
+}
+
+/* NEW: The breathing animation keyframes */
+@keyframes floatRing {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
 }
 
 .carousel-3d {
