@@ -623,7 +623,8 @@ p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin-bottom: 1.5rem
 @media (max-width: 430px) {
     .hero-section {
         padding-top: 15vh;
-        padding-bottom: 35vh; /* Creates a blank space at the bottom for the 3D asset */
+        /* CHANGED: Removed the 35vh blank space so the Mission section pulls up tighter */
+        padding-bottom: 10vh; 
     }
 
     .boldonse-text { 

@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Set initial state for the 3D asset loader
         gsap.set("#spline-container", {
-            top: "0%",
+            top: "-5%",
             left: isDesktop ? "0%" : "50%", 
             xPercent: isDesktop ? 0 : -56, // -56 pulls it perfectly to the center
             width: "100vw",
@@ -49,15 +49,14 @@ window.addEventListener('DOMContentLoaded', () => {
         
         // Instantly snap it to its final, responsive size while invisible
         .set("#spline-container", {
-            top: isDesktop ? "10%" : "82%",  // PUSHED LOWER ON MOBILE 
-            left: isDesktop ? "57%" : "50%",
-            xPercent: isDesktop ? 0 : -50,  
-            width: isDesktop ? "55vw" : "100vw", 
-            height: isDesktop ? "80vh" : "30vh", // SHORTER ON MOBILE so it doesn't cover text
-            zIndex: 1 
+            top: isDesktop ? "10%" : "30%",  
+            left: isDesktop ? "57%" : "70%",
+            xPercent: isDesktop ? 0 : -50, 
+            yPercent: isDesktop ? 0 : -50,  
+            width: isDesktop ? "55vw" : "140vw", 
+            height: isDesktop ? "80vh" : "80vh", 
+            zIndex: 0 // Forces it behind your text (which has z-index: 10)
         })
-        
-        // Fade the background away
         .to("#loader-bg", {
             opacity: 0,
             duration: 1.5, 
@@ -65,11 +64,11 @@ window.addEventListener('DOMContentLoaded', () => {
             onComplete: () => document.querySelector("#loader-bg").style.display = "none"
         });
 
-        // CONDITIONAL LOGIC: Only fade 3D asset back in if they are at the top of the page
         if (!isScrolledDown) {
-            tl.to("#spline-container", { opacity: 1, duration: 1.5 }, "<"); 
+            // FIX: Changed "finishTl" to "tl" so it doesn't crash the script!
+            // Opacity is correctly set to 0.08 for mobile here.
+            tl.to("#spline-container", { opacity: isDesktop ? 1 : 0.1, duration: 1.5 }, "<"); 
         } else {
-            // Keep it completely hidden to prevent text clashing on mid-page reloads
             gsap.set("#spline-container", { display: "none" });
         }
         
