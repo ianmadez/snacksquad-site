@@ -53,8 +53,8 @@ window.addEventListener('DOMContentLoaded', () => {
             left: isDesktop ? "57%" : "70%",
             xPercent: isDesktop ? 0 : -50, 
             yPercent: isDesktop ? 0 : -50,  
-            width: isDesktop ? "55vw" : "140vw", 
-            height: isDesktop ? "80vh" : "80vh", 
+            width: isDesktop ? "55vw" : "150vw", 
+            height: isDesktop ? "80vh" : "85vh", 
             zIndex: 0 // Forces it behind your text (which has z-index: 10)
         })
         .to("#loader-bg", {
