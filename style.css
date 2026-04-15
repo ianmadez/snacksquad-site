@@ -823,6 +823,136 @@ p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin-bottom: 1.5rem
 }
 
 /* =========================================
+   SUPPLY CHAIN TIMELINE (RESCUE TO RETAIL)
+   ========================================= */
+
+/* Remove default panel padding so the banner can stretch edge-to-edge */
+#how-it-works {
+    padding: 0 !important; 
+    min-height: 0 !important; 
+    display: block !important; 
+    background-color: var(--bg-cream);
+    /* Soft top border to separate from the Solution panel */
+    border-top: 1px solid rgba(10, 46, 38, 0.05); 
+}
+
+/* The Heavy Green Banner */
+.timeline-header-banner {
+    width: 100%;
+    padding: 3.5rem 0;
+    /* Uses your deep primary green with a subtle gradient for texture */
+    background: linear-gradient(135deg, var(--primary-green) 0%, rgba(10, 46, 38, 0.92) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid rgba(255, 107, 74, 0.2); /* A faint coral line underneath */
+}
+
+/* Restore the padding to the content underneath the banner */
+#how-it-works .content-wrapper {
+    padding: 4rem 10% 6rem 10%;
+}
+
+.timeline-container { 
+    position: relative; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 2rem 0; 
+}
+
+/* The Background Line */
+.timeline-line { 
+    position: absolute; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 4px; 
+    height: 100%; 
+    background: rgba(10, 46, 38, 0.1); 
+    z-index: 1; 
+}
+
+/* The Coral Line that "draws" as you scroll */
+.timeline-progress { 
+    position: absolute; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 4px; 
+    height: 0%; 
+    background: var(--accent-coral); 
+    z-index: 2; 
+}
+
+.timeline-step { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 4rem; 
+    position: relative; 
+    z-index: 3; 
+}
+
+.timeline-step:last-child { margin-bottom: 0; }
+
+.step-left { flex-direction: row; }
+.step-right { flex-direction: row-reverse; text-align: left; }
+
+.step-content { 
+    width: 45%; 
+    background: white; 
+    padding: 2.5rem; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); 
+    text-align: left;
+}
+
+.step-content h3 { 
+    color: var(--primary-green); 
+    margin-bottom: 0.5rem; 
+    font-size: 1.5rem; 
+}
+
+/* The hollow circles on the line */
+.step-dot { 
+    width: 24px; 
+    height: 24px; 
+    background: var(--bg-cream); 
+    border: 4px solid var(--accent-coral); 
+    border-radius: 50%; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease; 
+}
+
+/* When the scroll line hits them, they pop green */
+.step-dot.active { 
+    background: var(--primary-green); 
+    border-color: var(--primary-green); 
+    transform: translateX(-50%) scale(1.3);
+}
+
+/* MOBILE FIXES: Shifts the line to the left edge, stacks boxes, and adjusts padding */
+@media (max-width: 768px) {
+    /* Restores side padding to the timeline on mobile */
+    #how-it-works .content-wrapper { padding: 3rem 5% 5rem 5%; }
+
+    .timeline-line, .timeline-progress { left: 20px; }
+    
+    .timeline-step { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding-left: 60px; 
+        margin-bottom: 3rem; 
+    }
+    
+    .step-right { flex-direction: column; }
+    .step-content { width: 100%; padding: 2rem; }
+    .step-dot { left: 20px; }
+}
+
+/* =========================================
    RESPONSIVE DESIGN (1024px, 768px, 430px)
    ========================================= */
 
@@ -875,6 +1005,8 @@ p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin-bottom: 1.5rem
     /* Stack products to 2 columns */
     .product-grid { grid-template-columns: repeat(2, 1fr); }
     .features-grid { grid-template-columns: 1fr; }
+
+    #how-it-works .content-wrapper { padding: 3rem 5% 5rem 5%; }
 
     /* Footer Tablet/Mobile adjustments */
     .footer-wrapper {

@@ -218,3 +218,49 @@ orderForm.addEventListener('submit', (e) => {
     const whatsappUrl = `https://wa.me/${SNACK_SQUAD_WHATSAPP}?text=${message}`;
     window.open(whatsappUrl, '_blank');
 });
+
+// --- 7. SUPPLY CHAIN TIMELINE (Rescue to Retail) ---
+const timelineSection = document.querySelector('.timeline-section');
+
+if (timelineSection) {
+    // 1. Draw the coral line down the center as you scroll
+    gsap.to('.timeline-progress', {
+        scrollTrigger: {
+            trigger: '.timeline-container',
+            start: "top center", // Starts drawing when the top of the timeline hits screen center
+            end: "bottom center", // Finishes when the bottom hits the center
+            scrub: true
+        },
+        height: "100%",
+        ease: "none"
+    });
+
+    // 2. Animate the boxes popping in and the dots lighting up
+    const steps = gsap.utils.toArray('.timeline-step');
+    
+    steps.forEach(step => {
+        const content = step.querySelector('.step-content');
+        const dot = step.querySelector('.step-dot');
+        
+        // Pop the box in with a little bounce
+        gsap.from(content, {
+            scrollTrigger: {
+                trigger: step,
+                start: "top 75%",
+                toggleActions: "play none none reverse"
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "back.out(1.2)"
+        });
+
+        // Toggle the dot class exactly when the line hits it
+        ScrollTrigger.create({
+            trigger: step,
+            start: "top center", 
+            onEnter: () => dot.classList.add('active'),
+            onLeaveBack: () => dot.classList.remove('active')
+        });
+    });
+}
